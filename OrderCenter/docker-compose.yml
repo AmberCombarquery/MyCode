@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  signing_service:
+    build:
+      context: ..
+      dockerfile: order-center/Dockerfile
+    container_name: order-center
+    restart: always
+    ports:
+      - "41017:8016"
+    env_file:
+      - config/.env
+    volumes:
+      - ./config:/app/config
